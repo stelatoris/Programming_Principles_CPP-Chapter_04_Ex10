@@ -15,7 +15,10 @@ string you_win("You win.\n");
 string i_win("I win!\n");
 string again("Let's go again!\n");
 
-vector<char>sequence = { 's','p','s','r','s','r','r','p','s' };
+int player_score = 0;
+int machine_score = 0;
+
+vector<char>sequence = { 's','p','s','r','s','p','s','p','s' };
 
 void instructions() {
 	cout << "------------------------------------------------------------------------------------------------------\n";
@@ -53,6 +56,10 @@ string machine_play(int i) {
 
 }
 
+void score() {
+	cout<<"Score:\tComputer: " << machine_score << '\t' << "Player: " << player_score << '\n';
+}
+
 int main()
 {
 	char player_item;
@@ -79,6 +86,9 @@ int main()
 			if (player_item == machine_item)
 			{
 				cout << "It's a draw!\n";
+				score();
+				cout << again;
+				machine_play_num += 1;
 				continue;
 			}
 			switch (player_item) {
@@ -87,11 +97,14 @@ int main()
 				cout << "You played Rock!\n";
 				if (machine_item == 'p')
 				{
+					machine_score += 1;
 					cout << i_win;
 				}
 				else {
+					player_score += 1;
 					cout << you_win;
 				}
+				score();
 				cout << again;
 				machine_play_num += 1;
 				break;
@@ -100,11 +113,15 @@ int main()
 				cout << "You played Paper!\n";
 				if (machine_item == 's')
 				{
+					machine_score += 1;
 					cout << i_win;
+					
 				}
 				else {
+					player_score += 1;
 					cout << you_win;
 				}
+				score();
 				cout << again;
 				machine_play_num += 1;
 				break;
@@ -112,11 +129,14 @@ int main()
 				cout << "You played Scissors!\n";
 				if (machine_item == 'r')
 				{
+					machine_score += 1;
 					cout << i_win;
 				}
 				else {
+					player_score += 1;
 					cout << you_win;
 				}
+				score();
 				cout << again;
 				machine_play_num += 1;
 				break;
