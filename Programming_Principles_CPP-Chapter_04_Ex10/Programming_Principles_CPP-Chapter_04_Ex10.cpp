@@ -68,7 +68,10 @@ int main()
 
 	while (cin >> player_item) {
 
-		if (player_item == 'r' || player_item == 'p' || player_item == 's') { // validate input to be pushed back into vector
+		if (player_item != 'r' && player_item != 'p' && player_item != 's' && player_item != 'q' && player_item != 'i' && player_item != 'v') {
+			cout << "Sorry, I don't recognise your choice. Please choose one of the following items: (R)ock, (P)aper, or (S)cissors.\n";
+		}
+		else if (player_item == 'r' || player_item == 'p' || player_item == 's') { // validate input to be pushed back into vector
 
 			sequence.push_back(player_item);
 			machine_item = sequence[machine_play_num];
