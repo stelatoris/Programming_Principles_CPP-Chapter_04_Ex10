@@ -159,7 +159,7 @@ int main()
 				}
 				break;
 			default:
-				cout << "Sorry, I don't recognise your choice. Please choose one of the following items: (R)ock, (P)aper, or (S)cissors.\n";
+				
 				break;
 			}
 		}
